@@ -1,172 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Two Wheels & The Open Road | My Garage</title>
-    <style>
-        /* Base Theme Colors & Fonts */
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background-color: #1a1a1a; 
-            color: #e0e0e0; 
-            line-height: 1.6;
-        }
-        
-        /* Layout Container */
-        .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-
-        /* Header Section */
-        header { 
-            text-align: center; 
-            padding: 60px 20px; 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)), url('https://unsplash.com') no-repeat center/cover;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            border-bottom: 4px solid #ff6600;
-        }
-        header h1 { font-size: 2.8rem; color: #ffffff; letter-spacing: 1px; text-transform: uppercase; }
-        header p { font-size: 1.2rem; color: #ff6600; font-weight: bold; margin-top: 10px; }
-
-        /* Intro Bio */
-        .bio-section {
-            background-color: #262626;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        .bio-section h2 { color: #ff6600; margin-bottom: 15px; }
-
-        /* Main Grid (Responsive Layout) */
-        .dashboard-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-            margin-bottom: 40px;
-        }
-
-        /* Dashboard Cards */
-        .card { 
-            background-color: #262626; 
-            border-radius: 12px; 
-            padding: 25px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            border-top: 3px solid #404040;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .card:hover { 
-            transform: translateY(-5px); 
-            border-color: #ff6600;
-        }
-        .card h3 { color: #ffffff; margin-bottom: 15px; border-bottom: 1px solid #404040; padding-bottom: 8px; }
-        
-        /* List Styling inside Cards */
-        .card ul { list-style: none; }
-        .card li { margin-bottom: 12px; display: flex; justify-content: space-between; font-size: 0.95rem; }
-        .card li span.label { color: #aaaaaa; font-weight: bold; }
-        .card li span.value { color: #ff6600; font-family: monospace; font-size: 1rem; }
-
-        /* Links & Buttons */
-        a.btn {
-            display: inline-block;
-            background-color: #ff6600;
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: bold;
-            margin-top: 15px;
-            text-align: center;
-            width: 100%;
-        }
-        a.btn:hover { background-color: #e05500; }
-
-        /* Footer */
-        footer { text-align: center; padding: 40px 0; color: #666666; font-size: 0.9rem; border-top: 1px solid #262626; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MotoDoug Designs | Adventure Motorcycle Accessories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0a3d4a;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(10,61,74,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #87CEEB;
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 2px;
+      color: #87CEEB;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: #87CEEB; }
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #0d2f38 0%, #0a3d4a 50%, #082a34 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('cfmoto450mt.jpg') center/cover;
+      opacity: 0.55;
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      letter-spacing: 4px;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    .btn {
+      display: inline-block;
+      background: #87CEEB;
+      color: #0a3d4a;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(135,206,235,0.4);
+    }
+    .btn-outline {
+      background: transparent;
+      color: #87CEEB;
+      border: 2px solid #87CEEB;
+      margin-left: 1rem;
+    }
+    section {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      letter-spacing: 2px;
+      color: #87CEEB;
+    }
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about p { font-size: 1.1rem; margin-bottom: 1rem; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: #0d2f38;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #1a5a6b;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #87CEEB;
+    }
+    .card-img {
+      height: 200px;
+      background: linear-gradient(45deg, #87CEEB, #5dade2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+    .card-content { padding: 1.5rem; }
+    .card h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
+    .adventures {
+      background: #082a34;
+      text-align: center;
+    }
+    .adventures p { max-width: 700px; margin: 0 auto 2rem; font-size: 1.15rem; }
+    footer {
+      background: #061e26;
+      text-align: center;
+      padding: 3rem 1rem;
+      border-top: 2px solid #87CEEB;
+    }
+    footer a { color: #87CEEB; text-decoration: none; }
+    @media (max-width: 768px) {
+      .about { grid-template-columns: 1fr; }
+      header { padding: 1rem; }
+      nav a { margin-left: 1rem; font-size: 0.9rem; }
+      .btn-outline { margin-left: 0; margin-top: 1rem; display: block; }
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="logo">MOTODOUG DESIGNS</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#mounts">Mounts</a>
+      <a href="#designs">Designs</a>
+      <a href="#adventures">Adventures</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-    <div class="container">
-        
-        <!-- Header Banner -->
-        <header>
-            <h1>The Moto Log</h1>
-            <p>Adventure, Mechanical Fixes, & The Open Road</p>
-        </header>
-
-        <!-- Personal Introduction -->
-        <section class="bio-section">
-            <h2>Welcome to my digital cockpit</h2>
-            <p>Hey, I'm a motorcycle enthusiast who loves tracking terrain routes, customizing hardware, and building custom dashboard configurations. This site holds my active vehicle specs, build projects, and maintenance quick-links.</p>
-        </section>
-
-        <!-- Main Dashboard Content Grid -->
-        <main class="dashboard-grid">
-            
-            <!-- Card 1: Main Machine Specs -->
-            <div class="card">
-                <h3>The Stable</h3>
-                <ul>
-                    <li><span class="label">Platform:</span> <span class="value">Adventure Dual-Sport</span></li>
-                    <li><span class="label">Engine Setup:</span> <span class="value">Parallel-Twin / 450cc</span></li>
-                    <li><span class="label">Tire Setup:</span> <span class="value">Continental TKC 70</span></li>
-                    <li><span class="label">Cockpit Mount:</span> <span class="value">Standard AMPS Pattern</span></li>
-                </ul>
-            </div>
-
-            <!-- Card 2: Current Build Projects -->
-            <div class="card">
-                <h3>Active Mods & Fabrication</h3>
-                <ul>
-                    <li><span class="label">Cockpit Navigation:</span> <span class="value">7" Rugged Tablet Integration</span></li>
-                    <li><span class="label">Hardware Housing:</span> <span class="value">3D Printed Custom Shell</span></li>
-                    <li><span class="label">Emergency Spares:</span> <span class="value">Frame-Mounted Storage Tubes</span></li>
-                    <li><span class="label">Status:</span> <span class="value">Tuning Cooling Layouts</span></li>
-                </ul>
-            </div>
-
-            <!-- Card 3: Essential Ride Kit -->
-            <div class="card">
-                <h3>Bad Weather Strategy</h3>
-                <ul>
-                    <li><span class="label">Main Shell:</span> <span class="value">Technical Impact Shell</span></li>
-                    <li><span class="label">Over-Armor Rain Layer:</span> <span class="value">Compact Heavy Waterproof Jacket</span></li>
-                    <li><span class="label">Comms Link:</span> <span class="value">Heavy-Duty Bluetooth Helmet Audio</span></li>
-                    <li><span class="label">Display Shield:</span> <span class="value">Anti-Glare Screen Armor</span></li>
-                </ul>
-            </div>
-
-        </main>
-
-        <!-- Quick Navigation / Community Links -->
-        <section class="dashboard-grid">
-            <div class="card">
-                <h3>Project Repositories</h3>
-                <p>Want to see my custom 3D printed navigation brackets or custom dashboard tracking files?</p>
-                <a href="https://github.com" class="btn" target="_blank">View My GitHub Projects</a>
-            </div>
-            <div class="card">
-                <h3>My Mapping Navigation</h3>
-                <p>Explore tracking layouts optimized for continuous digital map routing and active dashboard software setups.</p>
-                <a href="#" class="btn">View Route Coordinates</a>
-                <div class="card">
-    <h3>My Live Tracking</h3>
-    <p>Follow my active trail progress, real-time waypoints, and remote routing coordinates broadcast directly via satellite.</p>
-    <!-- REPLACE THE URL BELOW WITH YOUR ACTUAL GARMIN LINK -->
-    <a href="https://share.garmin.com/share/Chabon" class="btn" target="_blank">Open Live Garmin Map</a>
-</div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2026 Moto Log. Built with pure HTML, CSS, and hosted globally on Cloudflare Pages.</p>
-        </footer>
-
+  <section class="hero">
+    <div class="hero-content">
+      <h1>MotoDoug Designs</h1>
+      <p>Precision 3D-printed accessories for adventure motorcycles.<br>Designed and tested on the CFMoto Ibex 450 (MT).</p>
+      <a href="#designs" class="btn">Explore Designs</a>
+      <a href="https://share.garmin.com/Chabon" class="btn btn-outline" target="_blank">Follow My Rides (Garmin MapShare)</a>
     </div>
+  </section>
 
+  <section id="about">
+    <h2>About MotoDoug</h2>
+    <div class="about">
+      <div>
+        <p>MotoDoug Designs is born from the trail. Every mount, bracket, and accessory is designed, printed, and tested on real adventure bikes in real conditions.</p>
+        <p>What started as a personal hobby of solving problems on my own rides has grown into a small shop creating functional, durable 3D-printed gear for riders who push their machines beyond the pavement.</p>
+        <p>Whether it’s a custom GPS mount, light bar, or tank accessory, every piece is made with the same care I put into my own CFMoto Ibex 450 (MT) setup.</p>
+      </div>
+      <div style="background: url('cfmoto450mt.jpg') center/cover; height: 350px; border-radius: 12px;">
+      </div>
+    </div>
+  </section>
+
+  <section id="mounts">
+    <h2>GPS Mounts & Tablet Mounts</h2>
+    <div class="products">
+      <div class="card">
+        <div class="card-img">📍</div>
+        <div class="card-content">
+          <h3>GPS Mounts</h3>
+          <p>Precision 3D-printed mounts for Garmin zūmo XT, Montana, and other adventure GPS units. Designed for vibration resistance and clean cable routing on the CFMoto Ibex 450 (MT).</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img">📱</div>
+        <div class="card-content">
+          <h3>Tablet Mounts</h3>
+          <p>Secure mounts for tablets (including Grit Adventure T71 and similar). AMPS-compatible options with adjustable positioning for trail navigation and media.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="designs">
+    <h2>3D Printed Designs</h2>
+    <div class="products">
+      <div class="card">
+        <div class="card-img">🛠️</div>
+        <div class="card-content">
+          <h3>Custom Accessories</h3>
+          <p>From tank bags to tool holders — if you need it for the trail, we can design and print it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="adventures" class="adventures">
+    <h2>Tested on the Trail</h2>
+    <p>Every design is refined through real desert miles, rocky tracks, and long adventure days on the CFMoto Ibex 450 (MT). If it doesn’t survive a proper ride, it doesn’t ship.</p>
+    <p style="font-size: 1.4rem; color: #87CEEB; font-weight: 700;">Ride Hard. Print Strong.</p>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+      <p style="margin-bottom: 2rem; font-size: 1.15rem;">Interested in a custom design or want to see current products? Reach out — I’d love to hear from fellow riders.</p>
+      <a href="mailto:motodoug@dougmcginnis.com" class="btn">Email MotoDoug</a>
+      <p style="margin-top: 2rem; opacity: 0.7;">dougmcginnis.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 MotoDoug Designs. Built for the trail.</p>
+    <p style="margin-top: 0.5rem;"><a href="https://github.com" target="_blank">GitHub Pages</a></p>
+  </footer>
 </body>
 </html>
